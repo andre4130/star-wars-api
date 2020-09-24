@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import '../src/assets/images/milky2.jpg'
 
 // components
 import Login from './Components/Login/Login';
 import MainPage from './Components/MainPage/MainPage';
+import Characters from './Components/Characters/Characters';
+import Register from './Components/Register/Register';
 
 
 //Styles
@@ -20,12 +23,15 @@ const App = () => {
         <Nav className="mr-auto">
           <Nav.Link href="/">Login</Nav.Link>
           <Nav.Link href="/MainPage">Spaceships</Nav.Link>
+          <Nav.Link href="/Characters">Characters</Nav.Link>
         </Nav>
       </Navbar>
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/MainPage" component={MainPage} />
+          <Route exact path="/Characters" component={Characters} />
+          <Route exact path="/Register" component={Register} />
         </Switch>
       </Router>
     </div>

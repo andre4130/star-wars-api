@@ -1,44 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Redirect } from 'react-router-dom';
 
 //STYLING
 import '../../App.css'
 import { Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-//SERVICES
-import userService from "../../services/user.service";
-import { authenticationService } from '../../services/authentication-service'
 
-// DATA
-// import spaceships from '../../Data/spaceships.json';
-
-
-function MainPage() {
-
+function Characters() {
+    
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [spaceships, setSpaceships] = useState([]);
+    const [characters, setCharacters] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [nextPage, setNextPage] = useState();
     const [prevPage, setPrevPage] = useState();
-
-    const [content, setContent] = useState("");
-
-    useEffect(() => {
-      UserService.getPublicContent().then(
-        (response) => {
-          setContent(response.data);
-        },
-        (error) => {
-          const _content =
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString();
-  
-          setContent(_content);
-        }
-      );
-    }, []);
 
     const goToNext = () => (
         setCurrentPage(currentPage + 1)
@@ -48,14 +22,13 @@ function MainPage() {
     );
 
     useEffect(() => {
-        fetch("https://swapi.dev/api/starships/?page=" + currentPage)
+        fetch("https://swapi.dev/api/people/?page=" + currentPage)
             .then(res => res.json())
             .then(
                 data => {
-                    setSpaceships(data.results);
+                    setCharacters(data.results);
                     setNextPage(data.next);
                     setPrevPage(data.previous);
-                    console.log(spaceships)
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -63,17 +36,17 @@ function MainPage() {
                     console.log("error!")
                 }
             )
-    }, []);
+    }, [goToNext, goToPrev]);
 
-    const shipList = spaceships.map((ship, index) => (
+    const shipList = characters.map((character, index) => (
         <Container>
             <CardColumns>
                 <Card>
                     <Card.Img variant="top" src="holder.js/100px160" />
                     <Card.Body>
-                        <Card.Title>{ship.name}</Card.Title>
+                        <Card.Title>{character.name}</Card.Title>
                         <Card.Text>
-                         <b>Model:</b> {ship.model}
+                            <b>Model:</b> {character.model}
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -82,13 +55,15 @@ function MainPage() {
     ))
 
     return (
+        <div>
         <Container className="MainPage">
-            {content}
             {prevPage == null ? <Button onClick={() => goToPrev()} disabled> Previous Page </Button> : <Button onClick={() => goToPrev()}> Previous Page </Button>}
             {nextPage == null ? <Button onClick={() => goToNext()} disabled>{currentPage} Next Page </Button> : <Button onClick={() => goToNext()} disabled>{currentPage} Next Page </Button>}
             <hr/>
             {shipList}
         </Container>
+        </div>
     )
 }
-export default MainPage
+
+export default Characters

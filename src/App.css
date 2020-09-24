@@ -1,5 +1,6 @@
 html, body {
-  background-image: url("https://pixabay.com/get/54e6dc464f54a514f6d1867dda353678153fd9e25455754f_1920.jpg")
+  background-image: url("./assets/images/milky2.jpg");
+  background-size: 100vw;
 }
 
 /* LOGIN */
@@ -8,12 +9,28 @@ html, body {
 display: inline-flex;
 flex-direction: row;
 align-items: center;
-text-align: center;
 justify-content: center;
-height: 200px;
-width: 300px;
-background-color: red;
+height: 100vh;
+width: 100vw;
+background-color: none;
+};
+
+.login-input {
+  margin: 1rem;
+  padding: 1rem;
 }
+
+/* REGISTER */
+
+.register {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: none;
+  };
 
 /* NAVBAR */
 .icon {
