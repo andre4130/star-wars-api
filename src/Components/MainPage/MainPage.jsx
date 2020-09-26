@@ -15,6 +15,10 @@ import { authenticationService } from '../../services/authentication-service'
 
 function MainPage() {
 
+    const [user, setUser] = useState({
+        currentUser: authenticationService.currentUserValue,
+        users: null
+    });
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [spaceships, setSpaceships] = useState([]);
@@ -24,21 +28,7 @@ function MainPage() {
 
     const [content, setContent] = useState("");
 
-    useEffect(() => {
-      UserService.getPublicContent().then(
-        (response) => {
-          setContent(response.data);
-        },
-        (error) => {
-          const _content =
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString();
-  
-          setContent(_content);
-        }
-      );
-    }, []);
+    useEffect(() => {userService.getAll().then(users => setUser({ users }))},[]);
 
     const goToNext = () => (
         setCurrentPage(currentPage + 1)
@@ -79,10 +69,13 @@ function MainPage() {
                 </Card>
             </CardColumns>
         </Container>
-    ))
+    ));
+
+    const {currentUser, users} = user;
 
     return (
         <Container className="MainPage">
+            <h1>Hi {currentUser.firstName}!</h1>
             {content}
             {prevPage == null ? <Button onClick={() => goToPrev()} disabled> Previous Page </Button> : <Button onClick={() => goToPrev()}> Previous Page </Button>}
             {nextPage == null ? <Button onClick={() => goToNext()} disabled>{currentPage} Next Page </Button> : <Button onClick={() => goToNext()} disabled>{currentPage} Next Page </Button>}

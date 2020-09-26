@@ -40,40 +40,11 @@ const Login = (props) => {
         setPassword(password);
     };
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-
-        setMessage("");
-        setLoading(true);
-
-        form.current.validateAll();
-
-        if (checkBtn.current.context._errors.length === 0) {
-            AuthService.login(username, password).then(
-                () => {
-                    props.history.push("/profile");
-                    window.location.reload();
-                },
-                (error) => {
-                    const resMessage =
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
-                        error.message ||
-                        error.toString();
-
-                    setLoading(false);
-                    setMessage(resMessage);
-                }
-            );
-        } else {
-            setLoading(false);
-    };
 
     return (
         <div className="col-md-12 login">
           <div className="card card-container m-2 p-3">
-                <Form onSubmit={handleLogin} ref={form}>
+                <Form ref={form}>
                     <div className="">
                     <label htmlFor="username">Username</label>
                         <Input
@@ -116,6 +87,6 @@ const Login = (props) => {
             </div>
         </div>
     );
-}}
+}
 
 export default Login
