@@ -1,8 +1,14 @@
 ## Star Wars API app
-<hr>
 This application was created with React Native and Styled with Bootstrap. It fetches from the Star Wars API https://swapi.dev 
 
-## images
+## Instructions for Installing the Application
+
+1. Clone this repository
+2. Install npm and node (if not yet installed)
+3. Open a Terminal in the project root and execute `npm install`
+4. Execute `npm start` to start the application 
+
+## Login
 
 ![Login Screen](/src/assets/images/readme/login.jpg)
 
