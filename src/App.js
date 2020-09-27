@@ -39,7 +39,7 @@ const App = () => {
           <Nav.Link href="/Characters">Characters</Nav.Link>
         </Nav>
       </Navbar>
-      <Router>
+      <Router basename="star-wars-api">
         <Switch>
           <Route exact path="/MainPage" component={MainPage} />
           <Route exact path="/Characters" component={Characters} />
