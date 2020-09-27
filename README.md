@@ -1,8 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Star Wars API app
+<hr>
+This application was created with React Native and Styled with Bootstrap. It fetches from the Star Wars API https://swapi.dev 
 
-## Available Scripts
+## images
 
-In the project directory, you can run:
+![Login Screen](/src/assets/images/readme/login.jpg)
 
 ### `npm start`
 
