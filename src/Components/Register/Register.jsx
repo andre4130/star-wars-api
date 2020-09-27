@@ -3,6 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+import { Link, Redirect } from 'react-router-dom'
 
 // import AuthService from "../../services/authentication-service";
 
@@ -79,25 +80,9 @@ const Register = (props) => {
 
     form.current.validateAll();
 
-    // if (checkBtn.current.context._errors.length === 0) {
-    //   AuthService.register(username, email, password).then(
-    //     (response) => {
-    //       setMessage(response.data.message);
-    //       setSuccessful(true);
-    //     },
-    //     (error) => {
-    //       const resMessage =
-    //         (error.response &&
-    //           error.response.data &&
-    //           error.response.data.message) ||
-    //         error.message ||
-    //         error.toString();
-
-    //       setMessage(resMessage);
-    //       setSuccessful(false);
-    //     }
-    //   );
-    // }
+    if (checkBtn.current.context._errors.length === 0) {
+      alert("Registration was successful")
+    }
   };
 
   return (
@@ -158,7 +143,8 @@ const Register = (props) => {
               </div>
             </div>
           )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          <CheckButton style={{ display: "none" }} ref={checkBtn}>
+          </CheckButton>
         </Form>
       </div>
     </div>

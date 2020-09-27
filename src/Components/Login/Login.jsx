@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
-// import AuthService from '../../services/authentication-service';
+import { Link } from 'react-router-dom'
 
 //Styling
-
 import { Container, Button } from 'react-bootstrap';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -43,42 +42,24 @@ const Login = (props) => {
         setPassword(password);
     };
 
-    // const handleLogin = (e) => {
-    //     e.preventDefault();
+    const handleLogin = (e) => {
+        e.preventDefault();
 
-    //     setMessage("");
-    //     setLoading(true);
+        setMessage("");
+        setLoading(true);
 
-    //     form.current.validateAll();
+        form.current.validateAll();
 
-    //     if (checkBtn.current.context._errors.length === 0) {
-    //         AuthService.login(username, password).then(
-    //             () => {
-    //                 props.history.push("/profile");
-    //                 window.location.reload();
-    //             },
-    //             (error) => {
-    //                 const resMessage =
-    //                     (error.response &&
-    //                         error.response.data &&
-    //                         error.response.data.message) ||
-    //                     error.message ||
-    //                     error.toString();
-
-    //                 setLoading(false);
-    //                 setMessage(resMessage);
-    //             }
-    //         );
-    //     } else {
-    //         setLoading(false);
-    // };
-
-    // onSubmit={handleLogin}
+        if (checkBtn.current.context._errors.length === 0) {
+            console.log("no errors!")
+        } else {
+            setLoading(false);
+    }};
 
     return (
         <div className="col-md-12 login">
           <div className="card card-container m-2 p-3">
-                <Form  ref={form}>
+                <Form  ref={form} onChange={handleLogin}>
                     <div className="">
                     <label htmlFor="username">Username</label>
                         <Input
@@ -102,17 +83,21 @@ const Login = (props) => {
                         />
                     </div>
                     <div className="form-group pt-3">
-                        <button className="btn btn-primary btn-block" disabled={loading}>
-                            {loading && (
+                        <Link to="/MainPage">
+                        <button className="btn btn-primary btn-block" disabled={!loading}>
+                            {/* {loading && (
                                 <span className="spinner-border spinner-border-sm"></span>
-                            )}
+                            )} */}
                             <span>Login</span>
                         </button>
+                        </Link>
                     </div>
                     <div className="form-group">
+                        <Link to="/Register">
                         <button className="btn btn-primary btn-block" >
                             <span>Register</span>
                         </button>
+                        </Link>
                     </div>
                     {message && (
                         <div className="form-group">
@@ -121,7 +106,7 @@ const Login = (props) => {
                             </div>
                         </div>
                     )}
-                    <CheckButton style={{ display: "none" }} ref={checkBtn} />
+                    <CheckButton style={{ display: "none" }} ref={checkBtn}/>          
                 </Form>
             </div>
         </div>
