@@ -2,14 +2,9 @@ import React, { useState, useRef } from "react";
 import { Link } from 'react-router-dom'
 
 //Styling
-import { Container, Button } from 'react-bootstrap';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
-//components 
-
-import Register from '../Register/Register'
 
 
 const required = (value) => {
@@ -54,14 +49,15 @@ const Login = (props) => {
             console.log("no errors!")
         } else {
             setLoading(false);
-    }};
+        }
+    };
 
     return (
         <div className="col-md-12 login">
-          <div className="card card-container m-2 p-3">
-                <Form  ref={form} onChange={handleLogin}>
+            <div className="card card-container m-2 p-3">
+                <Form ref={form} onChange={handleLogin}>
                     <div className="">
-                    <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Username</label>
                         <Input
                             type="text"
                             name="username"
@@ -72,7 +68,7 @@ const Login = (props) => {
                         />
                     </div>
                     <div className="pt-3">
-                    <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         <Input
                             type="password"
                             name="password"
@@ -84,19 +80,16 @@ const Login = (props) => {
                     </div>
                     <div className="form-group pt-3">
                         <Link to="/MainPage">
-                        <button className="btn btn-primary btn-block" disabled={!loading}>
-                            {/* {loading && (
-                                <span className="spinner-border spinner-border-sm"></span>
-                            )} */}
-                            <span>Login</span>
-                        </button>
+                            <button className="btn btn-primary btn-block" disabled={!loading}>
+                                <span>Login</span>
+                            </button>
                         </Link>
                     </div>
                     <div className="form-group">
                         <Link to="/Register">
-                        <button className="btn btn-primary btn-block" >
-                            <span>Register</span>
-                        </button>
+                            <button className="btn btn-primary btn-block" >
+                                <span>Register</span>
+                            </button>
                         </Link>
                     </div>
                     {message && (
@@ -106,7 +99,7 @@ const Login = (props) => {
                             </div>
                         </div>
                     )}
-                    <CheckButton style={{ display: "none" }} ref={checkBtn}/>          
+                    <CheckButton style={{ display: "none" }} ref={checkBtn} />
                 </Form>
             </div>
         </div>

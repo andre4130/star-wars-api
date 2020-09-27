@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Redirect, Link } from 'react-router-dom';
-
 
 //STYLING
 import '../../App.css'
 import { Container, CardColumns, Card, Button } from 'react-bootstrap';
-
-
-// DATA
-// import spaceships from '../../Data/spaceships.json';
-
 
 function MainPage() {
 
@@ -62,6 +55,7 @@ function MainPage() {
             )
     }
 
+    //Every time the user changes the page, the API is fetched to the corresponding fetch
     useEffect(() => {
         console.log("in use effect", currentPage, spaceships);
         fetchFunction();

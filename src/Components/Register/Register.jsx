@@ -3,9 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
-import { Link, Redirect } from 'react-router-dom'
-
-// import AuthService from "../../services/authentication-service";
+import { Link } from 'react-router-dom';
 
 const required = (value) => {
   if (!value) {
@@ -130,13 +128,19 @@ const Register = (props) => {
               <div className="form-group">
                 <button className="btn btn-primary btn-block">Sign Up</button>
               </div>
+              <div className="form-group">
+                        <Link to="/">
+                            <button className="btn btn-warning btn-block">
+                                <span>Login</span>
+                            </button>
+                        </Link>
+                    </div>
             </div>
           )}
-
           {message && (
             <div className="form-group">
               <div
-                className={ successful ? "alert alert-success" : "alert alert-danger" }
+                className={successful ? "alert alert-success" : "alert alert-danger"}
                 role="alert"
               >
                 {message}

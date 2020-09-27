@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import '../src/assets/images/milky2.jpg'
 
@@ -9,7 +9,6 @@ import MainPage from './Components/MainPage/MainPage';
 import Characters from './Components/Characters/Characters';
 import Register from './Components/Register/Register';
 import CharacterDetail from './Components/CharacterDetail/CharacterDetail';
-
 
 //Styles
 import { Navbar, Nav } from 'react-bootstrap'
@@ -33,7 +32,7 @@ const App = () => {
   const DefaultContainer = () => (
     <div>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">x</Navbar.Brand>
+        <Navbar.Brand href="/MainPage"></Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Logout</Nav.Link>
           <Nav.Link href="/MainPage">Spaceships</Nav.Link>

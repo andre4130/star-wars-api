@@ -1,4 +1,4 @@
-## Star Wars API app
+# Star Wars API app
 This application was created with React Native and Styled with Bootstrap. It fetches from the Star Wars API https://swapi.dev 
 
 ## Instructions for Installing the Application
@@ -8,69 +8,41 @@ This application was created with React Native and Styled with Bootstrap. It fet
 3. Open a Terminal in the project root and execute `npm install`
 4. Execute `npm start` to start the application 
 
-## Login
+
+## Login Screen
 
 ![Login Screen](/src/assets/images/readme/login.jpg)
 
-### `npm start`
+This is a fake login without access to backend. There is a form validation and the user must add a username and a password. The application will only validate the form and won't validate if the data is correct.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Register Screen
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Register Screen](/src/assets/images/readme/register.jpg)
 
-### `npm test`
+This is also a fake registration without access to backend. There is a form validation and the user must add a username, a valid email and a password with character restrictions. Once the user adds the data to the form, a popup will be shown to confirm the data has been sent. No data is registered in this application.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Main Page
 
-### `npm run build`
+![MainPage Screen](/src/assets/images/readme/mainpage.jpg)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+There is a bug to be fixed. Once the login is "successful", the application is redirected to the MainPage URL. In this mainpage, the list of spaceships should be loaded immediately, but it isn't. The user must click on the navbar Spaceships to load the list of the spacecrafts from the API.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Spaceships
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Spaceships Screen](/src/assets/images/readme/spaceships.jpg)
 
-### `npm run eject`
+Just like in the API, 10 is the maximum number of spaceships that are loaded in each screen. If the user wants to check the rest of the spaceships, should press Next Page. To go back, Previous Page. The number indicates the page where the user is at the moment.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Characters
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Characters Screen](/src/assets/images/readme/characters.jpg)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Just like in the spaceships url, 10 is the maximum number of spaceships that are loaded in each screen. There is a different browsing of the pages in this page. Between Previous Page and Next Page buttons, the user can browse through the complete list of pages. There is also implemented a See Details button, where the user can acess directly to the individual page of the character.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Single Character Information 
 
-## Learn More
+![Single Character Screen](/src/assets/images/readme/character.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This screen is not yet completed. All the complete information about each character will be displayed in this screen. The request to the API is not yet working, so that the view is temporary.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### May the Force be with you
